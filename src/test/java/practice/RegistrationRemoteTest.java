@@ -90,5 +90,7 @@ public class RegistrationRemoteTest {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+
+        closeWebDriver();
     }
 }
