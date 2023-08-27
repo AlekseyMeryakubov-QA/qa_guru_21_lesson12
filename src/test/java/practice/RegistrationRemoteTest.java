@@ -6,6 +6,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import practice.helpers.Attach;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -81,5 +82,13 @@ public class RegistrationRemoteTest {
             $(".table-responsive").shouldHave(text("New York"));
             $(".table-responsive").shouldHave(text("Haryana Karnal"));
         });
+    }
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
