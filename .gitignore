@@ -1,4 +1,9 @@
 .gradle
+gradle/wrapper
+gradle
 .idea
 build
-gradle
+gradlew
+gradlew.bat
+settings.gradle
+.DS_Store

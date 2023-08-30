@@ -29,10 +29,27 @@ dependencies {
     testImplementation (
             'com.codeborne:selenide:6.16.0',
             'org.junit.jupiter:junit-jupiter:5.9.3',
+            'io.qameta.allure:allure-selenide:2.23.0',
             'org.slf4j:slf4j-simple:2.0.7',
             'org.slf4j:slf4j-api:2.0.7'
     )
 }
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
 
 test {
     options {
@@ -46,5 +63,16 @@ test {
 task simple_test(type: Test){
     useJUnitPlatform{
         includeTags("simple")
+    }
+}
+
+task remote_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("remote")
+    }
+}
+task registration_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("registration")
     }
 }
