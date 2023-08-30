@@ -21,7 +21,7 @@ public class RegistrationTest {
     }
 
     @Test
-    @Tag("remote")
+    @Tag("registration")
     void fillRegistrationFormTest() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
