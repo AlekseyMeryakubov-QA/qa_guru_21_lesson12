@@ -41,23 +41,6 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
-
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
-}
-
-
-test {
-    options {
-        systemProperties(System.getProperties())
-    }
-    testLogging.showStandardStreams = true
-    testLogging.exceptionFormat = 'full'
-    useJUnitPlatform()
 }
 
 task simple_test(type: Test) {
